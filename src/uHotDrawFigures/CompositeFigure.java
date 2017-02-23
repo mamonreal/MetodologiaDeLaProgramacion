@@ -6,10 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class CompositeFigure extends AbstractFigure {
-	private List <IFigure> figures;
+	protected List <IFigure> figures;
 	
 	public CompositeFigure() {
 		figures = new ArrayList<IFigure>();
+	}
+	
+	public CompositeFigure(CompositeFigure c) {
+		this.caja = c.getCaja();
+		this.figures = c.getFigures();
 	}
 	
 	@Override

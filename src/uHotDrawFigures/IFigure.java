@@ -8,5 +8,5 @@ public interface IFigure {
 	public boolean containsPoint(double x, double y);
 	public void moveBy(double dx, double dy);
 	public Rectangle displayBox();
-	
+	public IFigure clone();
 }

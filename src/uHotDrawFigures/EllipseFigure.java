@@ -11,6 +11,18 @@ public class EllipseFigure extends AbstractFigure {
 //		g.drawOval(30, 40, 50, 50);
 //	}
 
+	public EllipseFigure(EllipseFigure e) {
+		this.caja = e.getCaja();
+	}
+	
+	public EllipseFigure() {
+		// TODO Auto-generated constructor stub
+	}
+
+	public EllipseFigure(int i, int j, int k, int l) {
+		this.caja = new Rectangle(i, j, k, l);
+	}
+
 	@Override
 	public boolean containsPoint(double x, double y) {
 		// TODO Auto-generated method stub
@@ -34,5 +46,10 @@ public class EllipseFigure extends AbstractFigure {
 		g.setColor(Color.blue);
 		Rectangle r = this.getCaja();
 		g.drawOval((int) r.getX(), (int) r.getY(), (int) r.getWidth(), (int) r.getHeight());
+	}
+	
+	@Override
+	public AbstractFigure clone() {
+		return new EllipseFigure(this);
 	}
 }

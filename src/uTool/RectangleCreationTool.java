@@ -6,9 +6,14 @@ import java.awt.event.MouseEvent;
 
 import uHotDrawFigures.IFigure;
 import uHotDrawFigures.RectangleFigure;
+import uHotDrawFramework.DrawingView;
 
 public class RectangleCreationTool extends AbstractTool{
 
+	public RectangleCreationTool(DrawingView dv) {
+		view = dv;
+	}
+	
 	@Override
 	public void mouseDown(MouseEvent e) {
 		// TODO Auto-generated method stub

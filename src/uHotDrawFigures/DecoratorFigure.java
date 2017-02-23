@@ -7,6 +7,28 @@ public class DecoratorFigure extends AbstractFigure {
 	
 	protected IFigure innerFigure;
 	
+	public DecoratorFigure() {
+		
+	}
+	
+	public DecoratorFigure(IFigure innerFigure) {
+		super();
+		this.innerFigure = innerFigure;
+	}
+
+	public DecoratorFigure(DecoratorFigure d) {
+		this.caja = d.getCaja();
+		this.innerFigure = d.getInnerFigure();
+	}
+	
+	public IFigure getInnerFigure() {
+		return innerFigure;
+	}
+
+	public void setInnerFigure(IFigure innerFigure) {
+		this.innerFigure = innerFigure;
+	}
+
 	public void setDecoratedFigure(IFigure f) {
 		innerFigure = f;
 	}

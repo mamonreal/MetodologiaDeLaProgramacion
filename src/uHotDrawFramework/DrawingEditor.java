@@ -9,7 +9,10 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import uHotDrawFigures.EllipseFigure;
+import uHotDrawFigures.RectangleFigure;
 import uTool.AbstractTool;
+import uTool.CreationTool;
 
 public class DrawingEditor extends JFrame implements ActionListener {
 	
@@ -18,7 +21,11 @@ public class DrawingEditor extends JFrame implements ActionListener {
 	private List <AbstractTool> tools;
 	private AbstractTool currentTool;
 	
+	private CreationTool rT, eT;
+	
 	private JButton b4, b5;
+	
+	
 	
 	public DrawingEditor() {
 		super();
@@ -40,6 +47,10 @@ public class DrawingEditor extends JFrame implements ActionListener {
 
         this.setVisible(true);
         this.pack();
+        
+        rT=new CreationTool(this.getView(),new RectangleFigure(0,0,10,10));
+        eT=new CreationTool(this.getView(),new EllipseFigure(0,0,10,10));
+        currentTool=rT;
 	}
 
 	public DrawingView getView() {
@@ -49,15 +60,23 @@ public class DrawingEditor extends JFrame implements ActionListener {
 	public void setView(DrawingView view) {
 		this.view = view;
 		this.setContentPane(view);
+	}	
+
+	public AbstractTool getCurrentTool() {
+		return currentTool;
+	}
+
+	public void setCurrentTool(AbstractTool currentTool) {
+		this.currentTool = currentTool;
 	}
 
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		if ("e".equals(e.getActionCommand())) {
-            //setCurrentTool(eT);
+            setCurrentTool(rT);
         }
         if ("r".equals(e.getActionCommand())) {
-            //setCurrentTool(rT);
+            setCurrentTool(rT);
         }
 	}	
 }
