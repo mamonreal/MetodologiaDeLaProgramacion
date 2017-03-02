@@ -3,6 +3,7 @@ package uHotDrawFramework;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.swing.JButton;
@@ -23,12 +24,13 @@ public class DrawingEditor extends JFrame implements ActionListener {
 	
 	private CreationTool rT, eT;
 	
-	private JButton b4, b5;
+	private JButton b4, b5, b6;
 	
 	
 	
 	public DrawingEditor() {
 		super();
+		tools = new ArrayList();
         JPanel barraHerramientas = new JPanel();
         b4 = new JButton("Rectangle");
         b4.setActionCommand("r");
@@ -38,6 +40,10 @@ public class DrawingEditor extends JFrame implements ActionListener {
         b5.setActionCommand("e");
         b5.addActionListener(this);
         barraHerramientas.add(b5);
+        b6 = new JButton("Polyline");
+        b6.setActionCommand("p");
+        b6.addActionListener(this);
+        barraHerramientas.add(b6);
 
         view = new DrawingView();
         view.setEditor(this);
@@ -48,9 +54,9 @@ public class DrawingEditor extends JFrame implements ActionListener {
         this.setVisible(true);
         this.pack();
         
-        rT=new CreationTool(this.getView(),new RectangleFigure(0,0,10,10));
-        eT=new CreationTool(this.getView(),new EllipseFigure(0,0,10,10));
-        currentTool=rT;
+        rT = new CreationTool(this.getView(),new RectangleFigure(0,0,10,10));
+        eT = new CreationTool(this.getView(),new EllipseFigure(0,0,10,10));
+        currentTool = rT;
 	}
 
 	public DrawingView getView() {
